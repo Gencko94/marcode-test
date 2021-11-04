@@ -1,13 +1,10 @@
-import { CssBaseline, Typography, Box } from '@mui/material';
 import type { NextPage } from 'next';
+import ArticleList from '../src/components/ArticleList';
 
 const Home: NextPage = () => {
   return (
     <>
-      <Box>
-        <Typography variant="h1">Hello</Typography>
-      </Box>
-      {/* <h1>Hello</h1> */}
+      <ArticleList />
     </>
   );
 };
