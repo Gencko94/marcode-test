@@ -4,7 +4,6 @@ import React, { useMemo } from 'react';
 import ArticleHeaderBlock from '../../src/components/SingleArticle/ArticleHeaderBlock';
 import ArticleParagraphBlock from '../../src/components/SingleArticle/ArticleParagraphBlock';
 import http from '../../src/configs/axios';
-import axios from 'axios';
 import {
   ARTICLE_BASE_URL,
   BASE_URL,
@@ -79,7 +78,6 @@ export default Article;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const params = ctx.params;
-  // console.log(params, 'params');
 
   if (params?.id) {
     try {
@@ -88,23 +86,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
           params.id as string
         }?include=clapsCount,commentsCount`
       );
-      console.log(data.data.id, params.id);
+
       return {
         props: { article: data.data },
       };
     } catch (error) {
-      // if (axios.isAxiosError(error)) {
-      //   if (error.response?.status === 500) {
-      //     return {
-      //       props: {
-      //         article: null,
-      //       },
-      //     };
-      //   }
-      //   return {
-      //     notFound: true,
-      //   };
-      // }
       return {
         notFound: true,
       };
