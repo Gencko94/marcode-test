@@ -151,3 +151,32 @@ export type COLLECTION_ITEM = {
     id: string;
   };
 };
+
+export interface IArticleComment {
+  id: number;
+  replay_to: unknown;
+  content: string;
+  date: string;
+  date_and_time: string;
+  replies_count: number;
+  likes_count: number;
+  username: string;
+  user_id: number;
+  user_likes: number;
+  user_avatar: string;
+  user_avatar_origin: string;
+  user_url: string;
+  level: number;
+  replies: any[];
+  can_like_it: boolean;
+  status: string;
+  created_at: string;
+  updated_at: string;
+  flagged: number;
+  show_as_dark: boolean;
+  author_role: '';
+  show_author_role: boolean;
+  show_the_badge: boolean;
+  can_edit: boolean;
+  can_delete: boolean;
+}

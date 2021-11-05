@@ -14,6 +14,8 @@ import { SingleArticle } from '../../src/lib/interfaces/articles';
 import Image from 'next/image';
 import ArticleMetaData from '../../src/components/ArticleItem/ArticleMetaData';
 import ArticleEditorImageBlock from '../../src/components/SingleArticle/ArticleEditorImageBlock';
+import ArticleComments from '../../src/components/SingleArticle/ArticleComments';
+
 const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
   const blocks = useMemo<React.ReactNode[]>(() => {
     const nodes: React.ReactNode[] = [];
@@ -60,7 +62,7 @@ const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
           <Image
             src={article.image as string}
             layout="intrinsic"
-            alt={article.meta_description || ('' as string)}
+            alt={article.meta_description as string}
             width={744}
             height={496}
             placeholder="blur"
@@ -68,6 +70,7 @@ const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
           />
         </div>
         {blocks}
+        <ArticleComments articleId={article.id} />
       </ArticleContentWrapper>
     </Container>
   );
