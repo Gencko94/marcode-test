@@ -15,7 +15,7 @@ const ArticleClaps = ({ claps }: IArticleClapsProps) => {
 };
 
 export default ArticleClaps;
-export const ClapsWrapper = styled('div')(({ theme }) => ({
+export const ClapsWrapper = styled('div')(() => ({
   display: 'flex',
   alignItems: 'center',
   gap: '5px',

@@ -16,7 +16,7 @@ const ArticleHeaderBlock = ({ data }: IArticleHeaderBlockProps) => {
       default:
         'subtitle1';
     }
-  }, []);
+  }, [data.level]);
 
   return (
     <Typography fontWeight="bold" variant={level}>

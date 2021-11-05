@@ -15,7 +15,7 @@ const ArticleViews = ({ views }: IArticleViewProps) => {
 
 export default ArticleViews;
 
-export const ViewWrapper = styled('div')(({ theme }) => ({
+export const ViewWrapper = styled('div')(() => ({
   display: 'flex',
   alignItems: 'center',
   gap: '5px',

@@ -14,7 +14,7 @@ const ArticleComments = ({ comments }: IArticleCommentsProps) => {
 };
 
 export default ArticleComments;
-export const CommentsWrapper = styled('div')(({ theme }) => ({
+export const CommentsWrapper = styled('div')(() => ({
   display: 'flex',
   alignItems: 'center',
   gap: '5px',

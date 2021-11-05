@@ -6,6 +6,7 @@ const ArticleListSkeleton = () => {
     <ArticleListWrapper>
       {[...Array.from(new Array(7))].map((i) => (
         <ContentLoader
+          key={i}
           speed={2}
           height={475}
           width={'100%'}

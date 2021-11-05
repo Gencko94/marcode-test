@@ -46,7 +46,7 @@ const ArticleMetaData = ({
       <Chip key="tag" clickable size="small" label={primary_tag.title} />
     );
     return data;
-  }, []);
+  }, [claps, comments, primary_tag.title, published_at, views]);
 
   return (
     <MetaDataWrapper>
