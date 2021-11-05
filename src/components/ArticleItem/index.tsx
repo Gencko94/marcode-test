@@ -13,9 +13,6 @@ const ArticleItem = ({ article }: IArticleItemProps) => {
   return (
     <ArticleItemWrapper>
       <div>
-        <Typography fontWeight="medium" variant="subtitle2">
-          {article.author.username}
-        </Typography>
         <Link passHref href={`/article/${article.id}`}>
           <a>
             <Typography
@@ -36,6 +33,7 @@ const ArticleItem = ({ article }: IArticleItemProps) => {
           published_at={article.published_at}
           claps={article.claps_count}
           comments={article.comments_count}
+          author={article.author}
         />
       </div>
       <div className="image-container">
@@ -58,14 +56,23 @@ export default ArticleItem;
 export const ArticleItemWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(2),
   display: 'flex',
+  gap: theme.spacing(2),
   justifyContent: 'space-between',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: theme.palette.background.paper,
   position: 'relative',
   overflow: 'hidden',
+  flexDirection: 'row',
   '& .image-container': {
     flexShrink: 0,
     width: '200px',
     height: '200px',
+  },
+  [theme.breakpoints.down('md')]: {
+    '& .image-container': {
+      width: '100%',
+      height: 'auto',
+    },
+    flexDirection: 'column-reverse',
   },
 }));

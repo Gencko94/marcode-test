@@ -95,7 +95,7 @@ export const getDesignTokens = (mode: COLOR_MODES): ThemeOptions => ({
 });
 export const getLightTheme = (): ThemeOptions => ({
   palette: {
-    primary: { main: PRIMARY_COLOR, light: '#fb81d0', dark: '#ff008c' },
+    primary: { main: PRIMARY_COLOR, light: '#1eb3e1', dark: '#ff008c' },
     secondary: { main: '#ffbb0e' },
     mode: 'light',
     // background: { default: '#f1f1f1' },

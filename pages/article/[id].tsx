@@ -10,13 +10,11 @@ import {
   PRIMARY_COLOR,
 } from '../../src/lib/constants';
 import { styled } from '@mui/material/styles';
-
 import { SingleArticle } from '../../src/lib/interfaces/articles';
 import Image from 'next/image';
 import ArticleMetaData from '../../src/components/ArticleItem/ArticleMetaData';
 import ArticleEditorImageBlock from '../../src/components/SingleArticle/ArticleEditorImageBlock';
 const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
-  // console.log(article, 'article' + article?.id);
   const blocks = useMemo<React.ReactNode[]>(() => {
     const nodes: React.ReactNode[] = [];
 
@@ -54,6 +52,7 @@ const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
         primary_tag={article.primary_tag}
         published_at={article.published_at}
         views={article.views}
+        author={article.author as any}
       />
 
       <ArticleContentWrapper>
@@ -111,10 +110,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     ...firstPageData.data.data,
     // ...secondPageData.data.data,
   ];
-  // const cleanArticles = combinedArticles
-  //   .slice(0, 10)
-  //   .filter((article) => !Array.isArray(article));
-  // console.log(cleanArticles);
+
   const paths = combinedArticles.map((article) => ({
     params: {
       id: article.id.toString(),
@@ -130,6 +126,8 @@ export const ArticleContentWrapper = styled('div')(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   a: { color: PRIMARY_COLOR },
+  margin: theme.spacing(1, 0),
+
   gap: theme.spacing(1),
   '& .image-wrapper': {
     margin: 'auto',
