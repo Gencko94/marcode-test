@@ -1,10 +1,10 @@
 /* eslint-disable react/display-name */
 
-import * as React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import createEmotionServer from "@emotion/server/create-instance";
-import createEmotionCache from "../styles/createEmotionCache";
-import { PRIMARY_COLOR } from "../src/lib/constants";
+import * as React from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import createEmotionServer from '@emotion/server/create-instance';
+import createEmotionCache from '../styles/createEmotionCache';
+import { PRIMARY_COLOR } from '../src/lib/constants';
 
 export default class MyDocument extends Document {
   render() {
@@ -18,11 +18,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Yaldevi:wght@200;300;400;500;600;700&display=swap"
             rel="stylesheet"
           />
-          <script
-            src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAYprqr3Vrnmhwx9UQozUNNks7CVH9m3Xg&language=${"en"}&libraries=places&v=weekly`}
-            async
-            defer
-          ></script>
         </Head>
         <body>
           <Main />
@@ -77,7 +72,7 @@ MyDocument.getInitialProps = async (ctx) => {
   const emotionStyles = extractCriticalToChunks(initialProps.html);
   const emotionStyleTags = emotionStyles.styles.map((style) => (
     <style
-      data-emotion={`${style.key} ${style.ids.join(" ")}`}
+      data-emotion={`${style.key} ${style.ids.join(' ')}`}
       key={style.key}
       //   eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: style.css }}

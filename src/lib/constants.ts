@@ -8,4 +8,6 @@ export const DURATIONS = {
   thirtyMins: 1000 * 60 * 15,
   oneHour: 1000 * 60 * 60,
 };
-export const PRIMARY_COLOR = "#FE3DBC";
+export const PRIMARY_COLOR = '#FE3DBC';
+export const BASE_URL = 'https://microservice.newsifier.com/api';
+export const ARTICLE_BASE_URL = 'https://androidworld.newsifier.com/api';

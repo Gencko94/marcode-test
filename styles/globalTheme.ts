@@ -1,16 +1,16 @@
-import { ThemeOptions } from "@mui/material";
-import { COLOR_MODES } from "../src/interfaces/general";
-import { PRIMARY_COLOR } from "../src/lib/constants";
+import { ThemeOptions } from '@mui/material';
+import { COLOR_MODES } from '../src/lib/interfaces/general';
+import { PRIMARY_COLOR } from '../src/lib/constants';
 
 export const getDesignTokens = (mode: COLOR_MODES): ThemeOptions => ({
   typography: {
-    fontFamily: "Yaldevi, sans-serif",
+    fontFamily: 'Yaldevi, sans-serif',
     fontWeightLight: 400,
     fontWeightRegular: 400,
-    fontWeightMedium: 500,
+    fontWeightMedium: 600,
     fontWeightBold: 700,
     button: {
-      textTransform: "none",
+      textTransform: 'none',
     },
   },
   components: {
@@ -22,7 +22,7 @@ export const getDesignTokens = (mode: COLOR_MODES): ThemeOptions => ({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          boxShadow: "inset 0 2px 4px rgb(0 0 0 / 9%), inset 0 0 0 100px #fff",
+          boxShadow: 'inset 0 2px 4px rgb(0 0 0 / 9%), inset 0 0 0 100px #fff',
         },
       },
     },
@@ -34,11 +34,11 @@ export const getDesignTokens = (mode: COLOR_MODES): ThemeOptions => ({
       },
       styleOverrides: {
         root: {
-          "&:not(:last-child)": {
+          '&:not(:last-child)': {
             borderBottom: 0,
           },
-          "&:before": {
-            display: "none",
+          '&:before': {
+            display: 'none',
           },
         },
       },
@@ -47,8 +47,8 @@ export const getDesignTokens = (mode: COLOR_MODES): ThemeOptions => ({
       styleOverrides: {
         root: {
           padding: 0,
-          "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-            transform: "rotate(180deg)",
+          '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+            transform: 'rotate(180deg)',
           },
         },
       },
@@ -56,9 +56,9 @@ export const getDesignTokens = (mode: COLOR_MODES): ThemeOptions => ({
     MuiButton: {
       styleOverrides: {
         containedInherit: {
-          backgroundColor: mode === "dark" ? "#35182B" : "#f0f0f0",
-          "&:hover": {
-            backgroundColor: mode === "dark" && "#441b36",
+          backgroundColor: mode === 'dark' ? '#35182B' : '#f0f0f0',
+          '&:hover': {
+            backgroundColor: mode === 'dark' && '#441b36',
           },
         },
       },
@@ -66,47 +66,47 @@ export const getDesignTokens = (mode: COLOR_MODES): ThemeOptions => ({
 
     MuiCssBaseline: {
       styleOverrides: {
-        "*::-webkit-scrollbar-track": {
-          WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
-          boxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
-          borderRadius: "10px",
-          backgroundColor: "#777",
+        '*::-webkit-scrollbar-track': {
+          WebkitBoxShadow: 'inset 0 0 6px rgba(0,0,0,0.3)',
+          boxShadow: 'inset 0 0 6px rgba(0,0,0,0.3)',
+          borderRadius: '10px',
+          backgroundColor: '#777',
         },
-        "*::-webkit-scrollbar": {
-          width: "6px",
-          height: "6px",
+        '*::-webkit-scrollbar': {
+          width: '6px',
+          height: '6px',
           backgroundColor: PRIMARY_COLOR,
         },
-        "*::-webkit-scrollbar-thumb": {
-          borderRadius: "10px",
-          WebkitBoxShadow: "inset 0 0 6px rgba(0,0,0,.3)",
-          boxShadow: "inset 0 0 6px rgba(0,0,0,.3)",
+        '*::-webkit-scrollbar-thumb': {
+          borderRadius: '10px',
+          WebkitBoxShadow: 'inset 0 0 6px rgba(0,0,0,.3)',
+          boxShadow: 'inset 0 0 6px rgba(0,0,0,.3)',
           backgroundColor: PRIMARY_COLOR,
-          transition: "background 150ms ease",
+          transition: 'background 150ms ease',
         },
-        "*::-webkit-scrollbar-thumb:hover": {
+        '*::-webkit-scrollbar-thumb:hover': {
           backgroundColor: PRIMARY_COLOR,
         },
       },
     },
   },
   shape: { borderRadius: 6 },
-  ...(mode === "light" ? getLightTheme() : getDarkTheme()),
+  ...(mode === 'light' ? getLightTheme() : getDarkTheme()),
 });
 export const getLightTheme = (): ThemeOptions => ({
   palette: {
-    primary: { main: PRIMARY_COLOR, light: "#fb81d0", dark: "#ff008c" },
-    secondary: { main: "#ffbb0e" },
-    mode: "light",
+    primary: { main: PRIMARY_COLOR, light: '#fb81d0', dark: '#ff008c' },
+    secondary: { main: '#ffbb0e' },
+    mode: 'light',
     // background: { default: '#f1f1f1' },
   },
 });
 export const getDarkTheme = (): ThemeOptions => ({
   palette: {
-    primary: { main: "#fb81d0", light: "#fb81d0", dark: "#ff008c" },
-    secondary: { main: "#ffdc81" },
-    mode: "dark",
-    background: { paper: "#35182B", default: "#251520" },
+    primary: { main: '#fb81d0', light: '#fb81d0', dark: '#ff008c' },
+    secondary: { main: '#ffdc81' },
+    mode: 'dark',
+    background: { paper: '#35182B', default: '#251520' },
   },
 });
 // declare module '@mui/material/styles' {

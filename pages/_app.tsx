@@ -5,7 +5,7 @@ import createEmotionCache from '../styles/createEmotionCache';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import Layout from '../src/layout';
-
+import '../styles/styles.css';
 const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
