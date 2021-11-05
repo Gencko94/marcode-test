@@ -11,6 +11,8 @@ export const getArticleComments = async ({
   articleId: number;
   page: number;
 }) => {
-  const res = await http.get(`/v1/article/${articleId}/comments/${page}`);
+  const res = await http.get(`/v1/article/${articleId}/comments/${page}`, {
+    headers: { Authorization: ' ' },
+  });
   return res.data;
 };

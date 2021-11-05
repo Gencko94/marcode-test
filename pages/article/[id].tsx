@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Container, Divider, Typography } from '@mui/material';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React, { useMemo } from 'react';
 import ArticleHeaderBlock from '../../src/components/SingleArticle/ArticleHeaderBlock';
@@ -70,6 +70,7 @@ const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
           />
         </div>
         {blocks}
+        <Divider sx={{ my: 4 }} />
         <ArticleComments articleId={article.id} />
       </ArticleContentWrapper>
     </Container>
