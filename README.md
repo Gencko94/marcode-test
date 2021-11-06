@@ -36,3 +36,15 @@ Using this approach is great . especially for SEO . but the main drawback is the
 ## Article comments section :
 
 - Regular CSR (Client side rendering) data fetching strategy was used to fetch the comments after the page loads. this approach makes sure that the user sees up-to-date comments. We can also have a re-fetch interval set to fetch new comments every certain amount of time.
+# Website Performance :
+
+- A Google lighthouse test was performed and results were the following : 
+## Home Page : 
+
+[![homepage.jpg](https://i.postimg.cc/PqhC99rM/homepage.jpg)](https://postimg.cc/9D8Xqx94)
+
+- Performance can probably be increased when SSR is used because of the cumulative shift layout in the skeleton loader.
+## Single Article page : 
+
+[![Single-article.jpg](https://i.postimg.cc/jjQ7jKk9/Single-article.jpg)](https://postimg.cc/06jQWgvd)
+
