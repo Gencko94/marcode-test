@@ -26,20 +26,32 @@ const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
       for (const contentType of article.content) {
         if (contentType.type === 'header') {
           nodes.push(
-            <ArticleHeaderBlock key="header" data={contentType.data} />
+            <ArticleHeaderBlock
+              key={contentType.data.text}
+              data={contentType.data}
+            />
           );
         }
         if (contentType.type === 'paragraph') {
-          nodes.push(<ArticleParagraphBlock data={contentType.data} />);
+          nodes.push(
+            <ArticleParagraphBlock
+              key={contentType.data.text}
+              data={contentType.data}
+            />
+          );
         }
         if (contentType.type === 'editorImage') {
-          nodes.push(<ArticleEditorImageBlock data={contentType.data} />);
+          nodes.push(
+            <ArticleEditorImageBlock
+              key={contentType.data.id}
+              data={contentType.data}
+            />
+          );
         }
       }
     }
     return nodes;
   }, [article]);
-  console.group(article);
   return (
     <>
       <NextSeo noindex nofollow />
@@ -118,15 +130,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const firstPageData = await http.get(
     `${BASE_URL}/v1/article/scopes/lat/get/0`
   );
-  // const secondPageData = await http.get(
-  //   `${BASE_URL}/v1/article/scopes/lat/get/1`
-  // );
-  const combinedArticles = [
-    ...firstPageData.data.data,
-    // ...secondPageData.data.data,
-  ];
 
-  const paths = combinedArticles.map((article) => ({
+  const paths = firstPageData.data.data.map((article: any) => ({
     params: {
       id: article.id.toString(),
     },
@@ -147,5 +152,6 @@ export const ArticleContentWrapper = styled('div')(({ theme }) => ({
   '& .image-wrapper': {
     margin: 'auto',
     position: 'relative',
+    maxWidth: '100%',
   },
 }));

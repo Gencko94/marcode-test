@@ -55,13 +55,7 @@ const ArticleMetaData = ({
       data.push(<ArticleComments key="comments" comments={comments} />);
     if (claps > 0) data.push(<ArticleClaps key="claps" claps={claps} />);
     data.push(
-      <Chip
-        color="primary"
-        key="tag"
-        clickable
-        size="small"
-        label={primary_tag.title}
-      />
+      <Chip key="tag" clickable size="small" label={primary_tag.title} />
     );
     return data;
   }, [author, claps, comments, primary_tag.title, published_at, views]);

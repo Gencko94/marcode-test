@@ -12,5 +12,5 @@ export interface ResponseMetaData {
   key: string;
   message: string;
   status: number;
-  other: unknown;
+  other: any;
 }

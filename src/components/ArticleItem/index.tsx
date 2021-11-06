@@ -37,16 +37,20 @@ const ArticleItem = ({ article }: IArticleItemProps) => {
         />
       </div>
       <div className="image-container">
-        <Image
-          layout="responsive"
-          src={article.thumbnails.xsmall_400 as string}
-          placeholder="blur"
-          blurDataURL={article.thumbnails.xsmall_300 as string}
-          alt={article.excerpt as string}
-          objectFit="cover"
-          width={200}
-          height={200}
-        />
+        <Link passHref href={`/article/${article.id}`}>
+          <a>
+            <Image
+              layout="responsive"
+              src={article.thumbnails.xsmall_400 as string}
+              placeholder="blur"
+              blurDataURL={article.thumbnails.xsmall_300 as string}
+              alt={article.excerpt as string}
+              objectFit="cover"
+              width={200}
+              height={200}
+            />
+          </a>
+        </Link>
       </div>
     </ArticleItemWrapper>
   );
