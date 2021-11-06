@@ -2,6 +2,7 @@ export const DURATIONS = {
   thirtySeconds: 1000 * 60 * 0.5,
   oneMinute: 1000 * 60 * 1,
   twoMins: 1000 * 60 * 2,
+  threeMinutes: 1000 * 60 * 3,
   fiveMins: 1000 * 60 * 5,
   tenMins: 1000 * 60 * 10,
   fifteenMins: 1000 * 60 * 15,

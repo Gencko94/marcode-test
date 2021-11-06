@@ -1,6 +1,7 @@
 import { AppBar, Container, Toolbar } from '@mui/material';
 import logo from '../../../public/logo.svg';
 import Image from 'next/image';
+import Link from 'next/link';
 const Navbar = () => {
   return (
     <AppBar
@@ -11,7 +12,11 @@ const Navbar = () => {
     >
       <Container sx={{ maxWidth: { xs: 'xs', sm: 'sm', md: 'md' } }}>
         <Toolbar disableGutters>
-          <Image src={logo} alt="smart android" />
+          <Link passHref href="/">
+            <a style={{ alignItems: 'center', display: 'flex' }}>
+              <Image src={logo} alt="smart android" />
+            </a>
+          </Link>
         </Toolbar>
       </Container>
     </AppBar>

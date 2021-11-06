@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Marcode test documentation
 
-## Getting Started
+Project was initialized with `create-next-app` and is using Next-JS 12 and Typescript .
 
-First, run the development server:
+Styling library of choice : `Material-UI V5`.
+Data fetching libraries of choice : `axios` and `react-query`.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Reason of choosing `Material-UI` as a styling library :
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Material-UI is great for doing quick projects. Despite the negative opinions regarding it's performance, the V5 version has accomplished a 50% performance boost than it's successor. We can also increase the performance by optimizing the component writing `styled-components` like syntax. a lot lighter and faster than using the built-in components.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+For large and complex projects it's also a great tool because it saves you a lot of the hard work. also it's pretty customizable.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Reason of choosing `react-query` as a fetching library :
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+React query provides high quality UX and DX. It allows us to cache the responses and set cache durations which in turn can and will reduce the calls to the server. and that is the Main goal of the MVP.
 
-## Learn More
+# Data Fetching Strategy
 
-To learn more about Next.js, take a look at the following resources:
+## Home Page :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- CSR (Client side rendering) was used to render the home page contents. we're having benefit from using the cached fetched data. this way each time the user visits the home page he's being served the cached data instead of hitting the server.
+- 3 minutes is the stale time for the fetched data.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Why not use SSR (Server Side Rendering) ?
 
-## Deploy on Vercel
+Using this approach is great . especially for SEO . but the main drawback is the data will be re-fetched each time the user finishes reading an article and goes back to the main page.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**_If we're OK with this drawback then this approach should fit the best_**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Single article Page :
+
+- SSG (Static site generation) was used to generate the articles into HTML files at build time, which is great for SEO and page speed . I decided to generate the first page of the articles to avoid high build times.
+- The pages that are not generated at build time can be still generated on request the first time a user visits it. and will stay generated until a new build is set up.
+
+## Article comments section :
+
+- Regular CSR (Client side rendering) data fetching strategy was used to fetch the comments after the page loads. this approach makes sure that the user sees up-to-date comments. We can also have a re-fetch interval set to fetch new comments every certain amount of time.

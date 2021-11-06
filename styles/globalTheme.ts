@@ -14,56 +14,6 @@ export const getDesignTokens = (mode: COLOR_MODES): ThemeOptions => ({
     },
   },
   components: {
-    MuiAppBar: {
-      defaultProps: {
-        enableColorOnDark: false,
-      },
-    },
-    MuiInputBase: {
-      styleOverrides: {
-        root: {
-          boxShadow: 'inset 0 2px 4px rgb(0 0 0 / 9%), inset 0 0 0 100px #fff',
-        },
-      },
-    },
-    MuiAccordion: {
-      defaultProps: {
-        disableGutters: true,
-        elevation: 0,
-        square: true,
-      },
-      styleOverrides: {
-        root: {
-          '&:not(:last-child)': {
-            borderBottom: 0,
-          },
-          '&:before': {
-            display: 'none',
-          },
-        },
-      },
-    },
-    MuiAccordionSummary: {
-      styleOverrides: {
-        root: {
-          padding: 0,
-          '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-            transform: 'rotate(180deg)',
-          },
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        containedInherit: {
-          backgroundColor: mode === 'dark' ? '#35182B' : '#f0f0f0',
-          '&:hover': {
-            backgroundColor: mode === 'dark' && '#441b36',
-          },
-        },
-      },
-    },
-
     MuiCssBaseline: {
       styleOverrides: {
         '*::-webkit-scrollbar-track': {
@@ -96,7 +46,7 @@ export const getDesignTokens = (mode: COLOR_MODES): ThemeOptions => ({
 export const getLightTheme = (): ThemeOptions => ({
   palette: {
     primary: { main: PRIMARY_COLOR, light: '#1eb3e1', dark: '#ff008c' },
-    secondary: { main: '#ffbb0e' },
+    secondary: { main: '#12345' },
     mode: 'light',
     // background: { default: '#f1f1f1' },
   },
@@ -109,40 +59,3 @@ export const getDarkTheme = (): ThemeOptions => ({
     background: { paper: '#35182B', default: '#251520' },
   },
 });
-// declare module '@mui/material/styles' {
-// interface Theme {
-//   breakpoints: {
-//     keys: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
-//     values: {
-//       xs: 0;
-//       sm: 600;
-//       md: 900;
-//       lg: 1200;
-//       xl: 1536;
-//       xxl: 1920;
-//     };
-//   };
-// }
-// // allow configuration using `createTheme`
-// interface ThemeOptions {
-//   breakpoints?: {
-//     keys: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
-//     values: {
-//       xs: 0;
-//       sm: 600;
-//       md: 900;
-//       lg: 1200;
-//       xl: 1536;
-//       xxl: 1920;
-//     };
-//   };
-// }
-// interface BreakpointOverrides {
-//   xs: true;
-//   sm: true;
-//   md: true;
-//   lg: true;
-//   xl: true;
-//   xxl: true;
-// }
-// }

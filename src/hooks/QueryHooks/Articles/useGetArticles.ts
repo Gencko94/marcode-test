@@ -17,7 +17,7 @@ interface IUseGetArticlesResponse {
 const useGetArticles = ({ queryOptions }: IUseGetArticlesProps) => {
   return useInfiniteQuery<IUseGetArticlesResponse>(
     GET_ARTICLES_QUERY_KEY,
-    getAllArticles,
+    ({ pageParam = 0 }) => getAllArticles({ page: pageParam }),
     {
       ...queryOptions,
     }

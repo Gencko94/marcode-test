@@ -6,7 +6,7 @@ import ArticleListSkeleton from './ArticleListSkeleton';
 
 const ArticleList = () => {
   const { data, status } = useGetArticles({
-    queryOptions: { staleTime: DURATIONS.fifteenMins },
+    queryOptions: { staleTime: DURATIONS.threeMinutes },
   });
   return (
     <ArticleListWrapper>

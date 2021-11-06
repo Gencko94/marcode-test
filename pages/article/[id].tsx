@@ -4,6 +4,8 @@ import React, { useMemo } from 'react';
 import ArticleHeaderBlock from '../../src/components/SingleArticle/ArticleHeaderBlock';
 import ArticleParagraphBlock from '../../src/components/SingleArticle/ArticleParagraphBlock';
 import http from '../../src/configs/axios';
+import { NextSeo } from 'next-seo';
+
 import {
   ARTICLE_BASE_URL,
   BASE_URL,
@@ -37,43 +39,52 @@ const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
     }
     return nodes;
   }, [article]);
-
+  console.group(article);
   return (
-    <Container sx={{ maxWidth: { xs: '763px' } }}>
-      <Typography
-        variant="h5"
-        gutterBottom
-        fontWeight={article.is_bold ? 'bold' : 'medium'}
-      >
-        {article.title}
-      </Typography>
+    <>
+      <NextSeo noindex nofollow />
+      {article.meta_title && article.meta_description && (
+        <NextSeo
+          title={article.meta_title as string}
+          description={article.meta_description as string}
+        />
+      )}
+      <Container sx={{ maxWidth: { xs: '763px' } }}>
+        <Typography
+          variant="h5"
+          gutterBottom
+          fontWeight={article.is_bold ? 'bold' : 'medium'}
+        >
+          {article.title}
+        </Typography>
 
-      <ArticleMetaData
-        claps={article.claps_count}
-        comments={article.comments_count}
-        primary_tag={article.primary_tag}
-        published_at={article.published_at}
-        views={article.views}
-        author={article.author as any}
-      />
+        <ArticleMetaData
+          claps={article.claps_count}
+          comments={article.comments_count}
+          primary_tag={article.primary_tag}
+          published_at={article.published_at}
+          views={article.views}
+          author={article.author as any}
+        />
 
-      <ArticleContentWrapper>
-        <div className="image-wrapper">
-          <Image
-            src={article.image as string}
-            layout="intrinsic"
-            alt={article.meta_description as string}
-            width={744}
-            height={496}
-            placeholder="blur"
-            blurDataURL={article.thumbnails.xsmall_300 as string}
-          />
-        </div>
-        {blocks}
-        <Divider sx={{ my: 4 }} />
-        <ArticleComments articleId={article.id} />
-      </ArticleContentWrapper>
-    </Container>
+        <ArticleContentWrapper>
+          <div className="image-wrapper">
+            <Image
+              src={article.image as string}
+              layout="intrinsic"
+              alt={article.meta_description as string}
+              width={744}
+              height={496}
+              placeholder="blur"
+              blurDataURL={article.thumbnails.xsmall_300 as string}
+            />
+          </div>
+          {blocks}
+          <Divider sx={{ my: 4 }} />
+          <ArticleComments articleId={article.id} />
+        </ArticleContentWrapper>
+      </Container>
+    </>
   );
 };
 
