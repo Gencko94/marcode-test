@@ -1,28 +1,41 @@
 import ContentLoader from 'react-content-loader';
-import { ArticleListWrapper } from '.';
+import { ArticleItemWrapper } from '../ArticleItem/index';
 
 const ArticleListSkeleton = () => {
   return (
-    <ArticleListWrapper>
+    <>
       {[...Array.from(new Array(7))].map((i) => (
-        <ContentLoader
-          key={i}
-          speed={2}
-          height={475}
-          width={'100%'}
-          backgroundColor="#f3f3f3"
-          foregroundColor="#ecebeb"
-        >
-          <circle cx="25" cy="112" r="15" />
-          <rect x="10" y="18" rx="0" ry="0" width="464" height="9" />
-          <rect x="497" y="10" rx="0" ry="0" width="144" height="144" />
-          <rect x="10" y="41" rx="0" ry="0" width="464" height="9" />
-          <rect x="10" y="65" rx="0" ry="0" width="364" height="9" />
-          <rect x="50" y="98" rx="0" ry="0" width="115" height="9" />
-          <rect x="50" y="115" rx="0" ry="0" width="115" height="10" />
-        </ContentLoader>
+        <ArticleItemWrapper key={i}>
+          <div style={{ flex: 1 }}>
+            <ContentLoader
+              speed={2}
+              height={'100%'}
+              width={'100%'}
+              backgroundColor="#f3f3f3"
+              foregroundColor="#ecebeb"
+            >
+              <rect x="0" y="0" rx="0" ry="0" width="464" height="15" />
+              <rect x="0" y="31" rx="0" ry="0" width="484" height="9" />
+              <rect x="0" y="50" rx="0" ry="0" width="364" height="9" />
+            </ContentLoader>
+          </div>
+          <div
+            className="image-container"
+            style={{ height: '100%', flexBasis: '33%' }}
+          >
+            <ContentLoader
+              speed={2}
+              height={'100%'}
+              width={'100%'}
+              backgroundColor="#f3f3f3"
+              foregroundColor="#ecebeb"
+            >
+              <rect x="0" y="0" rx="0" ry="0" width="100%" height="100%" />
+            </ContentLoader>
+          </div>
+        </ArticleItemWrapper>
       ))}
-    </ArticleListWrapper>
+    </>
   );
 };
 

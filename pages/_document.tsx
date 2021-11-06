@@ -9,7 +9,7 @@ import { PRIMARY_COLOR } from '../src/lib/constants';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           {/* PWA primary color */}
 

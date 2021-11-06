@@ -11,7 +11,7 @@ const ArticleEditorImageBlock = ({ data }: IArticleEditorImageBlockProps) => {
       <Image
         layout="fill"
         src={data.url as string}
-        alt={data.caption as string}
+        alt={`Image of ${data.caption}`}
         placeholder="blur"
         blurDataURL={data.url as string}
       />

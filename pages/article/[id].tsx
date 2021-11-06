@@ -54,7 +54,7 @@ const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
   }, [article]);
   return (
     <>
-      <NextSeo noindex nofollow />
+      {/* <NextSeo noindex nofollow /> */}
       {article.meta_title && article.meta_description && (
         <NextSeo
           title={article.meta_title as string}
@@ -84,7 +84,7 @@ const Article: NextPage<{ article: SingleArticle }> = ({ article }) => {
             <Image
               src={article.image as string}
               layout="intrinsic"
-              alt={article.meta_description as string}
+              alt={article.title as string}
               width={744}
               height={496}
               placeholder="blur"

@@ -41,10 +41,10 @@ const ArticleItem = ({ article }: IArticleItemProps) => {
           <a>
             <Image
               layout="responsive"
-              src={article.thumbnails.xsmall_400 as string}
+              src={article.thumbnails.xsmall_300 as string}
               placeholder="blur"
               blurDataURL={article.thumbnails.xsmall_300 as string}
-              alt={article.excerpt as string}
+              alt={article.title as string}
               objectFit="cover"
               width={200}
               height={200}
