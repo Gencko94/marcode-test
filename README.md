@@ -41,7 +41,7 @@ Using this approach is great . especially for SEO . but the main drawback is the
 - A Google lighthouse test was performed and results were the following : 
 ## Home Page : 
 
-[![homepage.jpg](https://i.postimg.cc/PqhC99rM/homepage.jpg)](https://postimg.cc/9D8Xqx94)
+![homepage.jpg](https://i.postimg.cc/PqhC99rM/homepage.jpg)
 
 - Performance can probably be increased when SSR is used because of the cumulative shift layout in the skeleton loader.
 ## Single Article page : 
